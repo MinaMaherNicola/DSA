@@ -10,12 +10,8 @@ namespace DSA.Tests.DataStructures.Linear.Arrays.DynamicArrayNS
 {
     public class DynamicArrayTests
     {
-        private DynamicArray dynamicArray;
+        private DynamicArray dynamicArray = new();
 
-        public DynamicArrayTests()
-        {
-            dynamicArray = new();
-        }
         [Fact]
         public void Adding_To_Empty_Dynamic_Array_Should_Increase_Length()
         {
