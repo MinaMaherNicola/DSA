@@ -20,20 +20,12 @@ namespace DSA.DataStructures.NonLinear.UnionFind.QuickUnionNS
         }
         public void Connect(int a, int b)
         {
-            // 5aly al root bta3 a yb2a child ll root bta3 b
-            int aRoot = GetRoot(a);
-            int bRoot = GetRoot(b);
-
-            array[aRoot] = bRoot;
+            array[GetRoot(a)] = GetRoot(b);
         }
 
         public bool Find(int a, int b)
         {
-            int aRoot = GetRoot(a);
-            int bRoot = GetRoot(b);
-
-            if (aRoot == bRoot) return true;
-            return false;
+            return GetRoot(a) == GetRoot(b);
         }
 
         public int Length()
