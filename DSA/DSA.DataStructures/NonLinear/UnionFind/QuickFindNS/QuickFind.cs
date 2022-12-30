@@ -13,6 +13,10 @@ namespace DSA.DataStructures.NonLinear.UnionFind.QuickFindNS
         {
             if (l <= 0) throw new Exception("Cannot initalize an array with length smaller than or equal to 0!");
             array = new int[l];
+            for (int i = 0; i < l; i++)
+            {
+                array[i] = i;
+            }
         }
         public void Connect(int a, int b)
         {
