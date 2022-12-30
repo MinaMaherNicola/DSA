@@ -43,5 +43,19 @@ namespace DSA.Tests.DataStructures.NonLinear.UnionFind.QuickFindTestsNS
 
             Assert.True(quickFind.Find(9, 1));
         }
+
+        [Fact]
+        public void Using_Find_On_Unconnected_Nodes_Should_Return_False()
+        {
+            QuickFind quickFind = new(10);
+
+            quickFind.Connect(1, 2);
+            quickFind.Connect(2, 3);
+            quickFind.Connect(3, 4);
+            quickFind.Connect(8, 9);
+            quickFind.Connect(4, 9);
+
+            Assert.False(quickFind.Find(1, 6));
+        }
     }
 }
