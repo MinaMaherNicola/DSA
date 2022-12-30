@@ -4,40 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA.DataStructures.NonLinear.UnionFind.QuickFindNS
+namespace DSA.DataStructures.NonLinear.UnionFind.QuickUnionNS
 {
-    public class QuickFind : IQuickFind
+    public class QuickUnion : IQuickUnion
     {
         private readonly int[] array;
-        public QuickFind(int l)
+        public QuickUnion(int l)
         {
             if (l <= 0) throw new Exception("Cannot initalize an array with length smaller than or equal to 0!");
             array = new int[l];
-            for (int i = 0; i < l; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 array[i] = i;
             }
         }
         public void Connect(int a, int b)
         {
-            int aConnectivitySetId = array[a];
-            int bConnectivitySetId = array[b];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == bConnectivitySetId) array[i] = aConnectivitySetId;
-            }
+            array[GetRoot(a)] = GetRoot(b);
         }
 
         public bool Find(int a, int b)
         {
-            if (array[a] == array[b]) return true;
-            return false;
+            return GetRoot(a) == GetRoot(b);
         }
 
         public int Length()
         {
             return array.Length;
+        }
+
+        private int GetRoot(int i)
+        {
+            while (i != array[i])
+            {
+                i = array[i];
+            }
+            return i;
         }
     }
 }
