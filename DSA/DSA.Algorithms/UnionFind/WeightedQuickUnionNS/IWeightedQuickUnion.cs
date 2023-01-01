@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA.DataStructures.NonLinear.UnionFind.WeightedQuickUnionNS
+namespace DSA.Algorithms.UnionFind.WeightedQuickUnionNS
 {
     public interface IWeightedQuickUnion
     {

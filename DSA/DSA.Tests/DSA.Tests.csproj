@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DSA.Algorithms\DSA.Algorithms.csproj" />
     <ProjectReference Include="..\DSA.DataStructures\DSA.DataStructures.csproj" />
   </ItemGroup>
 

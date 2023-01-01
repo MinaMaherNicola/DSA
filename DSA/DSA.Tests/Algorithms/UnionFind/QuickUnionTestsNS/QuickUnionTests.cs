@@ -1,4 +1,4 @@
-﻿using DSA.DataStructures.NonLinear.UnionFind.QuickUnionNS;
+﻿using DSA.Algorithms.UnionFind.QuickUnionNS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace DSA.Tests.DataStructures.NonLinear.UnionFind.QuickUnionTestsNS
+namespace DSA.Tests.Algorithms.UnionFind.QuickUnionTestsNS
 {
     public class QuickUnionTests
     {
