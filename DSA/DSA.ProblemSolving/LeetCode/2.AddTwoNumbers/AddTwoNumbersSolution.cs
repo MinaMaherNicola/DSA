@@ -10,43 +10,29 @@ namespace DSA.ProblemSolving.LeetCode._2.AddTwoNumbers
 {
     public class AddTwoNumbersSolution
     {
-        // O(n)
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            BigInteger l1Value = GetListValuesReversed(l1);
-            BigInteger l2Value = GetListValuesReversed(l2);
+            ListNode head = new();
+            ListNode dummy = head;
+            int carry = 0;
 
-            BigInteger outputReversed = l1Value + l2Value;
-            ListNode head = new((int)(outputReversed % 10));
-            outputReversed /= 10;
-            ListNode cursor = head;
-
-            while (outputReversed > 0)
+            while (l1 != null || l2 != null)
             {
-                cursor.next = new((int)(outputReversed % 10));
-                cursor = cursor.next;
-                outputReversed /= 10;
-            }
-            return head;
+                int l1Value = l1 == null ? 0 : l1.val;
+                int l2Value = l2 == null ? 0 : l2.val;
+                int sum = l1Value + l2Value + carry;
+                int lastDigit = sum % 10;
+                carry = sum / 10;
 
-        }
+                dummy.next = new(lastDigit);
+                dummy = dummy.next;
 
-        // O(n)
-        public BigInteger GetListValuesReversed(ListNode l)
-        {
-            ListNode cursor = l;
-            string listAsString = "";
-            while (cursor != null)
-            {
-                listAsString += cursor.val;
-                cursor = cursor.next;
+                if (l1 != null) l1 = l1.next;
+                if (l2 != null) l2 = l2.next;
             }
-            string listAsReversedString = "";
-            for (int i = listAsString.Length - 1; i >= 0; i--)
-            {
-                listAsReversedString += listAsString[i];
-            }
-            return BigInteger.Parse(listAsReversedString);
+            if (carry != 0) dummy.next = new(carry);
+
+            return head.next;
         }
     }
 
