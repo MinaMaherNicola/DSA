@@ -1,6 +1,6 @@
-﻿using DSA.ProblemSolving.LeetCode._2.AddTwoNumbers;
+﻿using DSA.DataStructures.Linear.Stack.LLStack;
 
-namespace DSA.ProblemSolving
+namespace DSA.DataStructures
 {
     internal class Program
     {

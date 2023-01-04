@@ -163,6 +163,13 @@ namespace DSA.DataStructures.Linear.LinkedLists.DoubleLinkedListNS
             return tail.Data;
         }
 
+        public int PeekLast()
+        {
+            if (length == 0) throw new Exception();
+
+            return tail.Data;
+        }
+
         public void RemoveFirst()
         {
             if (length == 1)
@@ -203,17 +210,23 @@ namespace DSA.DataStructures.Linear.LinkedLists.DoubleLinkedListNS
             length--;
         }
 
-        public void RemoveLast()
+        public int RemoveLast()
         {
+            if (length == 0) throw new Exception();
+
+            int removedItem = tail.Data;
             if (length == 1)
             {
                 Clear();
-                return;
             }
-            tail = tail.Prev;
-            tail.Next.Prev = null;
-            tail.Next = null;
-            length--;
+            else
+            {
+                tail = tail.Prev;
+                tail.Next.Prev = null;
+                tail.Next = null;
+                length--;
+            }
+            return removedItem;
         }
 
         public int[] ToArray()
