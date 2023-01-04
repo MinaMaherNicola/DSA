@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA.DataStructures.Linear.Stack.LLStack
+namespace DSA.DataStructures.Linear.Queue.LLQueue
 {
-    public interface IStack
+    public interface IQueue
     {
         // O(1)
-        void Push(int item);
+        void Enqueue(int item);
         // O(1)
-        int Pop();
+        int Dequeue();
         // O(1)
         int Peek();
         // O(1)

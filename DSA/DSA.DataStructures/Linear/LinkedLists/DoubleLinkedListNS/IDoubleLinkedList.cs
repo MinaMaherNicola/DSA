@@ -13,7 +13,7 @@ namespace DSA.DataStructures.Linear.LinkedLists.DoubleLinkedListNS
         // O(1)
         void AddLast(int item);
         // O(1)
-        void RemoveFirst();
+        int RemoveFirst();
         // O(1)
         int RemoveLast();
         // O(n)
@@ -38,5 +38,7 @@ namespace DSA.DataStructures.Linear.LinkedLists.DoubleLinkedListNS
         int GetLegnth();
         // O(1)
         int PeekLast();
+        // O(1)
+        int PeekFirst();
     }
 }
