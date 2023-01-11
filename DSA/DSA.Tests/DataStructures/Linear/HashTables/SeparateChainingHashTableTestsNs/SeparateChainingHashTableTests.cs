@@ -15,33 +15,59 @@ namespace DSA.Tests.DataStructures.Linear.HashTables.SeparateChainingHashTableTe
         [Fact]
         public void Using_Add_Should_Hash_The_Value_And_Add_It_To_Its_Key()
         {
-            hashTable.Add("hello");
+            hashTable.Add("hello", 1);
 
-            Assert.True(hashTable.DoesExist("hello"));
+            Assert.True(hashTable.DoesKeyExist("hello"));
+        }
+
+        [Fact]
+        public void Adding_With_The_Same_Key_Twice_Should_Throw_Exception()
+        {
+            hashTable.Add("hello", 1);
+
+            Assert.Throws<Exception>(() => hashTable.Add("hello", 2));
         }
 
         [Fact]
         public void Using_DoesExist_With_Item_That_Doesnt_Exist_Should_Return_False()
         {
-            Assert.False(hashTable.DoesExist("doe"));
+            Assert.False(hashTable.DoesKeyExist("doe"));
         }
 
         [Fact]
         public void Using_Add_That_Causes_Collision_Should_Chain_Values_Into_Same_List_0()
         {
-            hashTable.Add("a");
-            hashTable.Add("@!");
+            hashTable.Add("a", 1);
+            hashTable.Add("@!", 2);
 
-            Assert.True(hashTable.DoesExist("a"));
+            Assert.True(hashTable.DoesKeyExist("a"));
         }
 
         [Fact]
         public void Using_Add_That_Causes_Collision_Should_Chain_Values_Into_Same_List_1()
         {
-            hashTable.Add("a");
-            hashTable.Add("@!");
+            hashTable.Add("a", 1);
+            hashTable.Add("@!", 2);
 
-            Assert.True(hashTable.DoesExist("@!"));
+            Assert.True(hashTable.DoesKeyExist("@!"));
+        }
+
+        [Fact]
+        public void Using_Add_That_Causes_Collision_Should_Chain_Values_Into_Same_List_2()
+        {
+            hashTable.Add("a", 1);
+            hashTable.Add("@!", 2);
+
+            Assert.Equal(1, hashTable.GetValue("a"));
+        }
+
+        [Fact]
+        public void Using_Add_That_Causes_Collision_Should_Chain_Values_Into_Same_List_3()
+        {
+            hashTable.Add("a", 1);
+            hashTable.Add("@!", 2);
+
+            Assert.Equal(2, hashTable.GetValue("@!"));
         }
     }
 }
