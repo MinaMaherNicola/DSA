@@ -21,6 +21,29 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
             }
             return arr;
         }
+
+        public static int[] BubbleSort(int[] arr)
+        {
+            int maxLength = arr.Length;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                int left = 0, right = 1;
+                while (right < maxLength)
+                {
+                    if (arr[left] > arr[right]) (arr[left], arr[right]) = (arr[right], arr[left]);
+                    left++;
+                    right++;
+                }
+            }
+            return arr;
+        }
+
+        private static void PrintArr(int[] arr)
+        {
+            foreach (int i in arr) Console.Write(i + " ");
+
+            Console.WriteLine();
+        }
     }
 }
 
