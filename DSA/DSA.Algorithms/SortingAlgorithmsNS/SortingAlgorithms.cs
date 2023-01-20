@@ -8,6 +8,9 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
 {
     public static class SortingAlgorithms
     {
+        // O(n^2)
+        // θ(n^2)
+        // Ω(n^2)
         public static int[] SelectionSort(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
@@ -22,6 +25,9 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
             return arr;
         }
 
+        // O(n^2)
+        // θ(n^2)
+        // Ω(n)
         public static int[] BubbleSort(int[] arr)
         {
             int maxLength = arr.Length;
@@ -38,6 +44,24 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
             return arr;
         }
 
+        // O(n^2)
+        // θ(n^2)
+        // Ω(n)
+        public static int[] InsertionSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (arr[j] < arr[j - 1])
+                        (arr[j], arr[j - 1]) = (arr[j - 1], arr[j]);
+                    else
+                        break;
+                }
+            }
+            return arr;
+        }
+
         private static void PrintArr(int[] arr)
         {
             foreach (int i in arr) Console.Write(i + " ");
@@ -48,8 +72,6 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
 }
 
 // stuff to implement:
-// bubble sort
-// insertion sort
 // merge sort
 // heap sort
 // quick sort
