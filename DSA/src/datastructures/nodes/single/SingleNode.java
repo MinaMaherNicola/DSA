@@ -1,5 +1,7 @@
 package datastructures.nodes.single;
 
+import javax.swing.plaf.InsetsUIResource;
+
 public class SingleNode<T> {
     private T data;
     private SingleNode<T> next;
@@ -12,6 +14,11 @@ public class SingleNode<T> {
     public SingleNode(T data, SingleNode next) {
         this.data = data;
         this.next = next;
+    }
+
+    public SingleNode(T data) {
+        this.data = data;
+        this.next = null;
     }
 
     public T getData() {
