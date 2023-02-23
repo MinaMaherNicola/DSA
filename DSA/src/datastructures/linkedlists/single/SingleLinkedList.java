@@ -11,6 +11,16 @@ public class SingleLinkedList<T> {
         this.tail = null;
     }
 
+    public T firstItem() {
+        if (isEmpty()) return null;
+        return this.head.getData();
+    }
+
+    public T lastItem() {
+        if (isEmpty()) return null;
+        return this.tail.getData();
+    }
+
     // O(1)
     public void shift(T data) {
         addToStart(data);
