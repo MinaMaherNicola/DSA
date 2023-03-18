@@ -15,5 +15,6 @@ namespace DSA.DataStructures.DynamicArrayNS
     int IndexOf(T data);
     int Length();
     T[] GetArray();
+    T RemoveAt(int index);
   }
 }
