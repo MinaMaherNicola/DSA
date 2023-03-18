@@ -20,7 +20,7 @@ namespace DataStructuresTests.DynamicArraysTestsNS
     }
 
     [Fact]
-    public void AddingItemsToStartOfTheArrayShouldBehaveAsExcpected_0()
+    public void AddingItemsToStartOfTheArrayShouldBehaveAsExpected_0()
     {
       int[] compareArray = new int[] { 1, 2, 3, 4, 5 };
       dynamicArray.AddStart(5);
@@ -33,7 +33,7 @@ namespace DataStructuresTests.DynamicArraysTestsNS
     }
 
     [Fact]
-    public void AddingItemsToStartOfTheArrayShouldBehaveAsExcpected_1()
+    public void AddingItemsToStartOfTheArrayShouldBehaveAsExpected_1()
     {
       int[] compareArray = new int[] { 5 };
       dynamicArray.AddStart(5);
@@ -42,7 +42,7 @@ namespace DataStructuresTests.DynamicArraysTestsNS
     }
 
     [Fact]
-    public void AddingItemsToEndOfTheArraySouldBehaveAsExcpected_0()
+    public void AddingItemsToEndOfTheArraySouldBehaveAsExpected_0()
     {
       int[] compareArray = new int[] { 1, 2, 3, 4, 5 };
       dynamicArray.AddEnd(1);
@@ -55,7 +55,7 @@ namespace DataStructuresTests.DynamicArraysTestsNS
     }
 
     [Fact]
-    public void AddingItemsToEndOfTheArraySouldBehaveAsExcpected_1()
+    public void AddingItemsToEndOfTheArraySouldBehaveAsExpected_1()
     {
       int[] compareArray = new int[] { 1 };
       dynamicArray.AddEnd(1);
@@ -228,6 +228,86 @@ namespace DataStructuresTests.DynamicArraysTestsNS
       dynamicArray.AddEnd(3);
 
       Assert.Equal(2, dynamicArray[1]);
+    }
+
+    [Fact]
+    public void CallingRemoveOnEmptyArrayShouldThrowException()
+    {
+      Assert.Throws<IndexOutOfRangeException>(() => dynamicArray.RemoveAt(1));
+    }
+
+    [Fact]
+    public void CallingRemoveOnEmptyArrayWithOutOfBoundIndexShouldThrowException()
+    {
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      Assert.Throws<IndexOutOfRangeException>(() => dynamicArray.RemoveAt(3));
+    }
+
+    [Fact]
+    public void CallingRemoveAtShouldDecreaseLength()
+    {
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      dynamicArray.RemoveAt(1);
+
+      Assert.Equal(2, dynamicArray.Length());
+    }
+
+    [Fact]
+    public void CallingRemoveAtShouldWorkAsExpected_0()
+    {
+      int[] compareArray = new int[] { 2, 3 };
+
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      dynamicArray.RemoveAt(0);
+
+      Assert.True(Enumerable.SequenceEqual(compareArray, dynamicArray.GetArray()));
+    }
+
+    [Fact]
+    public void CallingRemoveAtShouldWorkAsExpected_1()
+    {
+      int[] compareArray = new int[] { 1, 3 };
+
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      dynamicArray.RemoveAt(1);
+
+      Assert.True(Enumerable.SequenceEqual(compareArray, dynamicArray.GetArray()));
+    }
+
+    [Fact]
+    public void CallingRemoveAtShouldWorkAsExpected_2()
+    {
+      int[] compareArray = new int[] { 1, 2 };
+
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      dynamicArray.RemoveAt(2);
+
+      Assert.True(Enumerable.SequenceEqual(compareArray, dynamicArray.GetArray()));
+    }
+
+    [Fact]
+    public void CallingRemoveAtShouldReturnRemovedItem()
+    {
+      dynamicArray.AddEnd(1);
+      dynamicArray.AddEnd(2);
+      dynamicArray.AddEnd(3);
+
+      Assert.Equal(3, dynamicArray.RemoveAt(2));
     }
   }
 }
