@@ -1,6 +1,6 @@
 using DSA.DataStructures.DynamicArrayNS;
 
-namespace DataStructuresTests.DynamicArraysTestsNS
+namespace DSA.Tests.DataStructuresTests.DynamicArraysTestsNS
 {
   public class DynamicArrayTests
   {
