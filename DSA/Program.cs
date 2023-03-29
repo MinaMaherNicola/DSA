@@ -1,15 +1,16 @@
 ﻿
+using DSA.DataStructures.LinkedLists.DoubleLinkedListNS;
 using DSA.DataStructures.LinkedLists.SingleLinkedListNS;
 
-SingleLinkedList<int> list = new();
-list.AddStart(5);
-list.AddStart(4);
-list.AddStart(3);
-list.AddStart(2);
-list.AddStart(1);
+DoubleLinkedList<int> list = new();
+list.AddEnd(5);
+list.AddEnd(4);
+list.AddEnd(3);
+list.AddEnd(2);
+list.AddEnd(1);
 
 int[] arr = new int[] { 1, 2, 3, 4, 5 };
 
 Console.WriteLine(list.ToString());
 
-Console.WriteLine(Enumerable.SequenceEqual(arr, list));
+System.Console.WriteLine(list.Any(x => x == 5));
