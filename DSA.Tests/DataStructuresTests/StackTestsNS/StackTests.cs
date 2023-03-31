@@ -22,7 +22,7 @@ namespace DSA.Tests.DataStructuresTests.StackTestsNS
     [Fact]
     public void Push_ShouldLeaveTheStackInProperOrder()
     {
-      int[] compareArray = new int[] { 1, 2, 3 };
+      int[] compareArray = new int[] { 3, 2, 1 };
       stack.Push(1);
       stack.Push(2);
       stack.Push(3);
@@ -33,7 +33,7 @@ namespace DSA.Tests.DataStructuresTests.StackTestsNS
     [Fact]
     public void Peek_ShouldReturnTheLastElementWithoutChangingTheStack()
     {
-      int[] compareArray = new int[] { 1, 2, 3 };
+      int[] compareArray = new int[] { 3, 2, 1 };
       stack.Push(1);
       stack.Push(2);
       stack.Push(3);
@@ -67,7 +67,7 @@ namespace DSA.Tests.DataStructuresTests.StackTestsNS
     [Fact]
     public void Pop_ShouldLeaveTheStackInLogicalOrder()
     {
-      int[] compareArray = new int[] { 1, 2 };
+      int[] compareArray = new int[] { 2, 1 };
       stack.Push(1);
       stack.Push(2);
       stack.Push(3);

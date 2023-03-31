@@ -1,14 +1,14 @@
 using System.Collections;
-using DSA.DataStructures.LinkedLists.DoubleLinkedListNS;
+using DSA.DataStructures.LinkedLists.SingleLinkedListNS;
 
 namespace DSA.DataStructures.StackNS
 {
   public class Stack<T> : IStack<T>
   {
-    private readonly IDoubleLinkedList<T> linkedList;
+    private readonly ISingleLinkedList<T> linkedList;
     public Stack()
     {
-      this.linkedList = new DoubleLinkedList<T>();
+      this.linkedList = new SingleLinkedList<T>();
     }
 
     public IEnumerator<T> GetEnumerator()
@@ -23,19 +23,19 @@ namespace DSA.DataStructures.StackNS
 
     public T Peek()
     {
-      T item = this.linkedList.DeleteEnd();
-      this.linkedList.AddEnd(item);
+      T item = this.linkedList.DeleteStart();
+      this.linkedList.AddStart(item);
       return item;
     }
 
     public T Pop()
     {
-      return this.linkedList.DeleteEnd();
+      return this.linkedList.DeleteStart();
     }
 
     public void Push(T item)
     {
-      this.linkedList.AddEnd(item);
+      this.linkedList.AddStart(item);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
