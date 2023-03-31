@@ -23,9 +23,27 @@ namespace DSA.Tests.AlgorithmsTests.SearchingAlgorithmsNS
     }
 
     [Fact]
-    public void BinarySearch_ShouldReturnNegativeOne_IfItDidntFindTheItem()
+    public void BinarySearch_ShouldReturnNegativeOne_IfItDidntFindTheItem_0()
     {
       int[] arr = new int[0];
+      int item = 10;
+
+      Assert.Equal(-1, SearchingAlgorithms.BinarySearch(arr, item));
+    }
+
+    [Fact]
+    public void BinarySearch_ShouldReturnNegativeOne_IfItDidntFindTheItem_1()
+    {
+      int[] arr = new int[] { 1, 2, 3, 4, 5, 6 };
+      int item = -10;
+
+      Assert.Equal(-1, SearchingAlgorithms.BinarySearch(arr, item));
+    }
+
+    [Fact]
+    public void BinarySearch_ShouldReturnNegativeOne_IfItDidntFindTheItem_2()
+    {
+      int[] arr = new int[] { 1, 2, 3, 4, 5, 6 };
       int item = 10;
 
       Assert.Equal(-1, SearchingAlgorithms.BinarySearch(arr, item));
