@@ -28,7 +28,7 @@ namespace DSA.DataStructures.DynamicArrayNS
 
     public bool DoesExist(T data)
     {
-      return this.array.Any(x => !x.Equals(default(T)) && x.Equals(data));
+      return this.array.Any(x => !x!.Equals(default(T)) && x.Equals(data));
     }
 
     public T[] GetArray()
@@ -51,8 +51,8 @@ namespace DSA.DataStructures.DynamicArrayNS
     {
       if (index < 0 || index >= this.array.Length) throw new IndexOutOfRangeException();
 
-      if (index == 0) return RemoveStart();
-      if (index == this.array.Length - 1) return RemoveEnd();
+      if (index == 0) return RemoveStart()!;
+      if (index == this.array.Length - 1) return RemoveEnd()!;
 
       T removedItem = this.array[index];
       T[] newArray = new T[this.array.Length - 1];
