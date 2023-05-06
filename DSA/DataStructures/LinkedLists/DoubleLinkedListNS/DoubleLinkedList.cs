@@ -26,7 +26,7 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
       }
       DoubleNode<T> newNode = new(item);
       newNode.Prev = this.tail;
-      this.tail.Next = newNode;
+      this.tail!.Next = newNode;
       this.tail = newNode;
     }
 
@@ -48,16 +48,16 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
     {
       if (this.IsEmpty()) if (this.IsEmpty()) throw new Exception("Cannot remove from empty list");
       this.DecrementLength();
-      T deletedItem = this.tail.Data;
+      T deletedItem = this.tail!.Data!;
       if (this.head == this.tail)
       {
         this.Clear();
       }
       else
       {
-        DoubleNode<T> deletedNode = this.tail;
+        DoubleNode<T>? deletedNode = this.tail;
         this.tail = this.tail.Prev;
-        this.tail.Next = null;
+        this.tail!.Next = null;
         deletedNode.Prev = null;
         deletedNode = null;
       }
@@ -67,24 +67,24 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
     public bool DeleteItem(T item)
     {
       if (!this.DoesExist(item)) return false;
-      if (this.head.Data.Equals(item))
+      if (this.head!.Data!.Equals(item))
       {
         this.DeleteStart();
         return true;
       }
-      if (this.tail.Data.Equals(item))
+      if (this.tail!.Data!.Equals(item))
       {
         this.DeleteEnd();
         return true;
       }
       DecrementLength();
       DoubleNode<T>? cursor = this.head;
-      while (!cursor.Data.Equals(item))
+      while (!cursor!.Data!.Equals(item))
       {
         cursor = cursor.Next;
       }
-      cursor.Prev.Next = cursor.Next;
-      cursor.Next.Prev = cursor.Prev;
+      cursor.Prev!.Next = cursor.Next;
+      cursor.Next!.Prev = cursor.Prev;
       cursor = null;
       return true;
     }
@@ -93,18 +93,18 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
     {
       if (this.IsEmpty()) throw new Exception("Cannot remove from empty list");
       DecrementLength();
-      T removedItem = this.head.Data;
+      T removedItem = this.head!.Data!;
       if (this.head == this.tail)
       {
         this.Clear();
       }
       else
       {
-        DoubleNode<T> firstNode = this.head;
+        DoubleNode<T>? firstNode = this.head;
         this.head = this.head.Next;
         firstNode.Next = null;
         firstNode = null;
-        this.head.Prev = null;
+        this.head!.Prev = null;
       }
 
       return removedItem;
@@ -113,12 +113,12 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
     public bool DoesExist(T item)
     {
       if (this.IsEmpty()) return false;
-      DoubleNode<T> cursor = this.head;
+      DoubleNode<T> cursor = this.head!;
 
       while (cursor != null)
       {
-        if (cursor.Data.Equals(item)) return true;
-        cursor = cursor.Next;
+        if (cursor.Data!.Equals(item)) return true;
+        cursor = cursor.Next!;
       }
       return false;
     }
@@ -136,20 +136,20 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
     public override string ToString()
     {
       string output = "[ Head -> ";
-      DoubleNode<T> cursor = this.head;
+      DoubleNode<T> cursor = this.head!;
       while (cursor != null)
       {
         output += $"{cursor.Data} -> ";
-        cursor = cursor.Next;
+        cursor = cursor.Next!;
       }
       output += "Tail -> ]\n";
       output += "[ Tail -> ";
-      cursor = this.tail;
+      cursor = this.tail!;
 
       while (cursor != null)
       {
         output += $"{cursor.Data} -> ";
-        cursor = cursor.Prev;
+        cursor = cursor.Prev!;
       }
 
       output += "Head -> ]";
@@ -159,11 +159,11 @@ namespace DSA.DataStructures.LinkedLists.DoubleLinkedListNS
 
     public IEnumerator<T> GetEnumerator()
     {
-      DoubleNode<T> cursor = this.head;
+      DoubleNode<T> cursor = this.head!;
       while (cursor != null)
       {
-        yield return cursor.Data;
-        cursor = cursor.Next;
+        yield return cursor.Data!;
+        cursor = cursor.Next!;
       }
     }
 
