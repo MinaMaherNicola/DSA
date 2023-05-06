@@ -16,6 +16,7 @@ namespace DSA.Tests.SortingAlgorithmsTestsNS
     {
       Assert.True(TestingUtiles.IsSorted(new int[] { 1, 2, 3, 4, 5, 6 }));
     }
+
     [Fact]
     public void InsertionSort_Should_Sort_Successfully_0()
     {
@@ -26,6 +27,7 @@ namespace DSA.Tests.SortingAlgorithmsTestsNS
     {
       Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.InsertionSort(new int[] { 40, 1, 430, 2, -1, 200, 10, 1, 20, 1, 1, 2, 4 })));
     }
+
     [Fact]
     public void BubbleSort_Should_Sort_Successfully_0()
     {
@@ -35,6 +37,17 @@ namespace DSA.Tests.SortingAlgorithmsTestsNS
     public void BubbleSort_Should_Sort_Successfully_1()
     {
       Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.BubbleSort(new int[] { 40, 1, 430, 2, -1, 200, 10, 1, 20, 1, 1, 2, 4 })));
+    }
+
+    [Fact]
+    public void SelectionSort_Should_Sort_Successfully_0()
+    {
+      Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.SelectionSort(new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 })));
+    }
+    [Fact]
+    public void SelectionSort_Should_Sort_Successfully_1()
+    {
+      Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.SelectionSort(new int[] { 40, 1, 430, 2, -1, 200, 10, 1, 20, 1, 1, 2, 4 })));
     }
   }
 }

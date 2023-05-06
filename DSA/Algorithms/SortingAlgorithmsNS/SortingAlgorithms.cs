@@ -30,5 +30,24 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
       }
       return arr;
     }
+
+    public static int[] SelectionSort(int[] arr)
+    {
+      for (int i = 0; i < arr.Length - 1; i++)
+      {
+        int smallest = arr[i];
+        int idx = i;
+        for (int j = i + 1; j < arr.Length; j++)
+        {
+          if (arr[j] < smallest)
+          {
+            smallest = arr[j];
+            idx = j;
+          }
+        }
+        (arr[i], arr[idx]) = (arr[idx], arr[i]);
+      }
+      return arr;
+    }
   }
 }
