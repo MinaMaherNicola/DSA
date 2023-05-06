@@ -24,7 +24,7 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
         return;
       }
       SingleNode<T> newNode = new(item);
-      this.tail.Next = newNode;
+      this.tail!.Next = newNode;
       this.tail = newNode;
       IncrementLength();
     }
@@ -46,18 +46,18 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
     public T DeleteEnd()
     {
       if (IsEmpty()) throw new Exception("Cannot delete from empty list");
-      T removedItem = this.tail.Data;
+      T removedItem = this.tail!.Data!;
       if (this.head == this.tail)
       {
         Clear();
-        return removedItem;
+        return removedItem!;
       }
-      SingleNode<T> cursor = this.head;
+      SingleNode<T> cursor = this.head!;
       while (cursor != null && cursor.Next != this.tail)
       {
-        cursor = cursor.Next;
+        cursor = cursor.Next!;
       }
-      cursor.Next = null;
+      cursor!.Next = null;
       this.tail = cursor;
       DecrementLength();
       return removedItem;
@@ -66,13 +66,13 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
     public T DeleteStart()
     {
       if (IsEmpty()) throw new Exception("Cannot delete from empty list");
-      T removedItem = this.head.Data;
+      T removedItem = this.head!.Data!;
       if (this.head == this.tail)
       {
         Clear();
         return removedItem;
       }
-      SingleNode<T> holder = this.head;
+      SingleNode<T>? holder = this.head;
       this.head = this.head.Next;
       holder = null;
       DecrementLength();
@@ -82,12 +82,12 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
     public bool DoesExist(T item)
     {
       if (IsEmpty()) return false;
-      SingleNode<T> cursor = this.head;
+      SingleNode<T> cursor = this.head!;
 
       while (cursor != null)
       {
-        if (cursor.Data.Equals(item)) return true;
-        cursor = cursor.Next;
+        if (cursor.Data!.Equals(item)) return true;
+        cursor = cursor.Next!;
       }
       return false;
     }
@@ -132,7 +132,7 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
       var cursor = this.head;
       while (cursor != null)
       {
-        yield return cursor.Data;
+        yield return cursor.Data!;
         cursor = cursor.Next;
       }
     }
@@ -150,7 +150,7 @@ namespace DSA.DataStructures.LinkedLists.SingleLinkedListNS
 
       while (cursor != null)
       {
-        output += cursor.Data.ToString() + " -> ";
+        output += cursor.Data!.ToString() + " -> ";
         cursor = cursor.Next;
       }
       return output += "<- Tail ]";
