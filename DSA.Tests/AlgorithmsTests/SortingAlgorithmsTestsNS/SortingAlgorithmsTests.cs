@@ -49,5 +49,16 @@ namespace DSA.Tests.SortingAlgorithmsTestsNS
     {
       Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.SelectionSort(new int[] { 40, 1, 430, 2, -1, 200, 10, 1, 20, 1, 1, 2, 4 })));
     }
+
+    [Fact]
+    public void MergeSort_Should_Sort_Successfully_0()
+    {
+      Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.MergeSort(new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 })));
+    }
+    [Fact]
+    public void MergeSort_Should_Sort_Successfully_1()
+    {
+      Assert.True(TestingUtiles.IsSorted(SortingAlgorithms.MergeSort(new int[] { 40, 1, 430, 2, -1, 200, 10, 1, 20, 1, 1, 2, 4 })));
+    }
   }
 }

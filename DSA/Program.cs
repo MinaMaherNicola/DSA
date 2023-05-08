@@ -1,8 +1,4 @@
-﻿using DSA.Algorithms.SearchingAlgorithmsNS;
-using DSA.Algorithms.SortingAlgorithmsNS;
+﻿using DSA.Algorithms.SortingAlgorithmsNS;
 
-int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-
-SearchingAlgorithms.BinarySearch(arr, 7);
-
-SortingAlgorithms.SelectionSort(new int[] { 5, 4, 3, 2, 1 });
+SortingAlgorithms.MergeSort(new int[] { 900, 1200, 12, 20, 0, 42 }).ToList().ForEach(x => Console.Write($"{x}, "));
+Console.WriteLine();
