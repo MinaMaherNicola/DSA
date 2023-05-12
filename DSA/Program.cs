@@ -1,4 +1,6 @@
 ﻿using DSA.Algorithms.SortingAlgorithmsNS;
 
-SortingAlgorithms.MergeSort(new int[] { 900, 1200, 12, 20, 0, 42 }).ToList().ForEach(x => Console.Write($"{x}, "));
+SortingAlgorithms.QuickSort(new int[] { 5, 1, 9, 2, 6 }).ToList().ForEach(x => Console.Write($"{x}, "));
+System.Console.WriteLine();
+SortingAlgorithms.QuickSort(new int[] { 3, 1, 1, 2, 1 }).ToList().ForEach(x => Console.Write($"{x}, "));
 Console.WriteLine();

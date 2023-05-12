@@ -89,5 +89,29 @@ namespace DSA.Algorithms.SortingAlgorithmsNS
       }
       return merged;
     }
+
+    public static int[] QuickSort(int[] a)
+    {
+      if (a.Length < 2) return a;
+
+      int pivot = Pivot(a);
+      return QuickSort(a[0..pivot]).Concat(new int[] { a[pivot] }).Concat(QuickSort(a[(pivot + 1)..a.Length])).ToArray();
+    }
+
+    private static int Pivot(int[] a)
+    {
+      int pivot = a[0], swap = 0;
+
+      for (int i = 0; i < a.Length; i++)
+      {
+        if (a[i] < pivot)
+        {
+          swap++;
+          (a[i], a[swap]) = (a[swap], a[i]);
+        }
+      }
+      (a[0], a[swap]) = (a[swap], a[0]);
+      return swap;
+    }
   }
 }
