@@ -1,6 +1,15 @@
-﻿using DSA.Algorithms.SortingAlgorithmsNS;
+﻿
+using DSA.DataStructures.BinarySearchTreeNS;
 
-SortingAlgorithms.QuickSort(new int[] { 5, 1, 9, 2, 6 }).ToList().ForEach(x => Console.Write($"{x}, "));
-System.Console.WriteLine();
-SortingAlgorithms.QuickSort(new int[] { 3, 1, 1, 2, 1 }).ToList().ForEach(x => Console.Write($"{x}, "));
-Console.WriteLine();
+BinarySearchTree bst = new();
+
+bst.Add(5);
+bst.Add(1);
+bst.Add(3);
+bst.Add(10);
+bst.Add(2);
+bst.Add(30);
+bst.Add(9);
+bst.Add(40);
+bst.Add(25);
+bst.Add(19);
