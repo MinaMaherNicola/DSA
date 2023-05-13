@@ -48,6 +48,22 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       }
       throw new Exception("Something went wrong!");
     }
+
+    public bool DoesExist(int item)
+    {
+      if (this.root == null) return false;
+
+      BinaryTreeNode? cursor = this.root;
+
+      while (cursor != null)
+      {
+        if (item == cursor.Data) return true;
+        if (item > cursor.Data) cursor = cursor.Right;
+        else cursor = cursor.Left;
+      }
+      return false;
+    }
+
     private bool Init(int item)
     {
       this.root = new(item);
