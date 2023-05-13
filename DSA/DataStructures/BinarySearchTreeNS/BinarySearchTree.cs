@@ -64,6 +64,21 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       return false;
     }
 
+    public BinaryTreeNode? GetNodeIfExists(int item)
+    {
+      if (this.root == null) return null;
+
+      BinaryTreeNode? cursor = this.root;
+
+      while (cursor != null)
+      {
+        if (item == cursor.Data) return cursor;
+        if (item > cursor.Data) cursor = cursor.Right;
+        else cursor = cursor.Left;
+      }
+      return null;
+    }
+
     private bool Init(int item)
     {
       this.root = new(item);
