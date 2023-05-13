@@ -13,3 +13,7 @@ bst.Add(9);
 bst.Add(40);
 bst.Add(25);
 bst.Add(19);
+bst.Add(39);
+bst.Add(41);
+
+bst.Remove(44);

@@ -15,6 +15,13 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       root = new BinaryTreeNode(data, left, right);
     }
 
+    public bool Remove(int item)
+    {
+      if (!DoesExist(item)) return false;
+      this.root = RemoveNode(this.root, item);
+      return true;
+    }
+
     public bool Add(int item)
     {
       if (this.root == null) return Init(item);
@@ -83,6 +90,40 @@ namespace DSA.DataStructures.BinarySearchTreeNS
     {
       this.root = new(item);
       return true;
+    }
+    private bool IsLeafNode(BinaryTreeNode node)
+    {
+      return node.Left == null && node.Right == null;
+    }
+    private BinaryTreeNode GetLeftMostNodeInBranch(BinaryTreeNode node)
+    {
+      BinaryTreeNode cursor = node;
+      while (cursor.Left != null) cursor = cursor.Left;
+      return cursor;
+    }
+
+    private BinaryTreeNode? RemoveNode(BinaryTreeNode? node, int item)
+    {
+      if (node == null) return null;
+
+      if (item > node.Data)
+      {
+        node.Right = RemoveNode(node.Right, item);
+      }
+      if (item < node.Data)
+      {
+        node.Left = RemoveNode(node.Left, item);
+      }
+      if (item == node.Data)
+      {
+        if (IsLeafNode(node)) return null;
+        if (node.Right == null) return node.Left;
+        if (node.Left == null) return node.Right;
+
+        node.Data = GetLeftMostNodeInBranch(node.Right).Data;
+        node.Right = RemoveNode(node.Right, node.Data);
+      }
+      return node;
     }
   }
 }
