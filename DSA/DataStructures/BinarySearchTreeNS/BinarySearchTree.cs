@@ -86,6 +86,19 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       return null;
     }
 
+    public void PreOrderTraversal()
+    {
+      Preorder(this.root);
+    }
+    public void InOrderTraversal()
+    {
+      InOrder(this.root);
+    }
+    public void PostOrderTraversal()
+    {
+      PostOrder(this.root);
+    }
+
     private bool Init(int item)
     {
       this.root = new(item);
@@ -101,7 +114,6 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       while (cursor.Left != null) cursor = cursor.Left;
       return cursor;
     }
-
     private BinaryTreeNode? RemoveNode(BinaryTreeNode? node, int item)
     {
       if (node == null) return null;
@@ -125,19 +137,29 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       }
       return node;
     }
-
-    public void PreOrderTraversal()
-    {
-      Preorder(this.root);
-    }
-
-    public void Preorder(BinaryTreeNode? node)
+    private void Preorder(BinaryTreeNode? node)
     {
       if (node == null) return;
 
       Console.WriteLine(node.Data);
       Preorder(node.Left);
       Preorder(node.Right);
+    }
+    private void InOrder(BinaryTreeNode? node)
+    {
+      if (node == null) return;
+
+      InOrder(node.Left);
+      Console.WriteLine(node.Data);
+      InOrder(node.Right);
+    }
+    private void PostOrder(BinaryTreeNode? node)
+    {
+      if (node == null) return;
+
+      Preorder(node.Left);
+      Preorder(node.Right);
+      Console.WriteLine(node.Data);
     }
   }
 }
