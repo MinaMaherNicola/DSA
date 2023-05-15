@@ -16,4 +16,4 @@ bst.Add(19);
 bst.Add(39);
 bst.Add(41);
 
-bst.PreOrderTraversal();
+bst.BfsTraversal();

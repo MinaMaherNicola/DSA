@@ -99,6 +99,26 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       PostOrder(this.root);
     }
 
+    public void BfsTraversal()
+    {
+      if (this.root == null) return;
+      Queue<BinaryTreeNode?> q = new();
+      q.Enqueue(this.root);
+      while (q.Count != 0)
+      {
+        BinaryTreeNode? node = q.Dequeue();
+        Console.WriteLine(node!.Data);
+        if (node.Left != null)
+        {
+          q.Enqueue(node.Left);
+        }
+        if (node.Right != null)
+        {
+          q.Enqueue(node.Right);
+        }
+      }
+    }
+
     private bool Init(int item)
     {
       this.root = new(item);

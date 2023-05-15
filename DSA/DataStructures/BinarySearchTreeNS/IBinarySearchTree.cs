@@ -11,5 +11,6 @@ namespace DSA.DataStructures.BinarySearchTreeNS
     void PreOrderTraversal();
     void InOrderTraversal();
     void PostOrderTraversal();
+    void BfsTraversal();
   }
 }
