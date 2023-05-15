@@ -125,5 +125,19 @@ namespace DSA.DataStructures.BinarySearchTreeNS
       }
       return node;
     }
+
+    public void PreOrderTraversal()
+    {
+      Preorder(this.root);
+    }
+
+    public void Preorder(BinaryTreeNode? node)
+    {
+      if (node == null) return;
+
+      Console.WriteLine(node.Data);
+      Preorder(node.Left);
+      Preorder(node.Right);
+    }
   }
 }

@@ -8,5 +8,6 @@ namespace DSA.DataStructures.BinarySearchTreeNS
     bool DoesExist(int item);
     BinaryTreeNode? GetNodeIfExists(int item);
     bool Remove(int item);
+    void PreOrderTraversal();
   }
 }
