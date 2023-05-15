@@ -135,8 +135,8 @@ namespace DSA.DataStructures.BinarySearchTreeNS
     {
       if (node == null) return;
 
-      Console.WriteLine(node.Data);
       Preorder(node.Left);
+      Console.WriteLine(node.Data);
       Preorder(node.Right);
     }
   }
