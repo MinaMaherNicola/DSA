@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"learningDSA/src/internal/recursion"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	fmt.Println(recursion.Power(2, 3))
 }
