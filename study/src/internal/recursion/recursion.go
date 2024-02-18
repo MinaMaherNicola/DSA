@@ -6,3 +6,11 @@ func Power(x int, y int) int {
 	}
 	return x * Power(x, y - 1)
 }
+
+func Factorial(x int) int {
+	if x == 1 {
+		return 1
+	}
+
+	return x * Factorial(x - 1)
+}
