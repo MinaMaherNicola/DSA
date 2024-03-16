@@ -2,9 +2,13 @@ package main
 
 import (
 	"fmt"
-	"learningDSA/src/internal/recursion"
+	"learningDSA/src/internal/sortingAlgorithms"
 )
 
 func main() {
-	fmt.Println(recursion.Power(2, 3))
+	a := []int {5, 1, 2, 10, 3, 4, 20, 50, 0}
+
+	sortingAlgorithms.BubbleSort(a)
+
+	fmt.Println(a)
 }

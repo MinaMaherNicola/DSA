@@ -1,4 +1,4 @@
-package recursion_tests
+package tests
 
 import (
 	"learningDSA/src/internal/recursion"
