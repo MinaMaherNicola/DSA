@@ -11,3 +11,15 @@ func BubbleSort(a []int) {
 		}
 	}
 }
+
+func SelectionSort(a []int) {
+	for i := 0; i < len(a); i++ {
+		selected := i
+		for j := i + 1; j < len(a); j++ {
+			if a[j] < a[selected] {
+				selected = j
+			}
+		}
+		a[i], a[selected] = a[selected], a[i]
+	}
+}

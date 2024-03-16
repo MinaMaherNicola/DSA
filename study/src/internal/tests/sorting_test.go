@@ -34,3 +34,13 @@ func TestBubbleSort(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestSelectionSort(t *testing.T) {
+	a := []int {5, 1, 2, 10, 3, 4, 20, 50, 0}
+
+	sortingAlgorithms.SelectionSort(a)
+
+	if !sortingAlgorithms.IsSorted(a) {
+		t.Fail()
+	}
+}
