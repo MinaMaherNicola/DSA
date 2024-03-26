@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-	"learningDSA/src/internal/sortingAlgorithms"
+	"learningDSA/src/internal/datastructures/linkedlists"
 )
 
 func main() {
-	a := []int {5, 1, 2, 10, 3, 4, 20, 50, 0}
+	l := linkedlists.SingleLinkedList{}
 
-	sortingAlgorithms.SelectionSort(a)
-
-	fmt.Println(a)
+	l.AddFirst(1)
+	l.AddFirst(2)
+	l.AddLast(4)
+	l.Remove(4)
+	fmt.Println(l.String())
 }
