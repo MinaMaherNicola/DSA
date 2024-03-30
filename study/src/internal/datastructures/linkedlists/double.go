@@ -1,5 +1,10 @@
 package linkedlists
 
+import (
+	"fmt"
+	"strings"
+)
+
 type DoubleNode struct {
 	Data int
 	Next *DoubleNode
@@ -7,8 +12,8 @@ type DoubleNode struct {
 }
 
 type DoubleLinkedList struct {
-	Head   *DoubleNode
-	Tail   *DoubleNode
+	head   *DoubleNode
+	tail   *DoubleNode
 	Length int
 }
 
@@ -26,13 +31,13 @@ func (l *DoubleLinkedList) AddFirst(d int) {
 		Data: d,
 	}
 	if l.IsEmpty() {
-		l.Head = newNode
-		l.Tail = newNode
+		l.head = newNode
+		l.tail = newNode
 		return
 	}
-	newNode.Next = l.Head
-	l.Head.Prev = newNode
-	l.Head = newNode
+	newNode.Next = l.head
+	l.head.Prev = newNode
+	l.head = newNode
 }
 
 func (l *DoubleLinkedList) AddLast(d int) {
@@ -41,11 +46,11 @@ func (l *DoubleLinkedList) AddLast(d int) {
 		l.AddFirst(d)
 		return
 	}
-	l.Tail.Next = &DoubleNode{
+	l.tail.Next = &DoubleNode{
 		Data: d,
-		Prev: l.Tail,
+		Prev: l.tail,
 	}
-	l.Tail = l.Tail.Next
+	l.tail = l.tail.Next
 }
 
 func (l *DoubleLinkedList) RemoveFirst() (int, bool) {
@@ -53,14 +58,14 @@ func (l *DoubleLinkedList) RemoveFirst() (int, bool) {
 		return 0, false
 	}
 	defer l.decrementLength()
-	output := l.Head.Data
+	output := l.head.Data
 
-	if l.Head == l.Tail {
+	if l.head == l.tail {
 		l.Clear()
 		return output, true
 	}
-	l.Head = l.Head.Next
-	l.Head.Prev = nil
+	l.head = l.head.Next
+	l.head.Prev = nil
 	return output, true
 }
 
@@ -69,21 +74,21 @@ func (l *DoubleLinkedList) RemoveLast() (int, bool) {
 		return 0, false
 	}
 	defer l.decrementLength()
-	output := l.Tail.Data
+	output := l.tail.Data
 
-	if l.Head == l.Tail {
+	if l.head == l.tail {
 		l.Clear()
 		return output, true
 	}
 
-	l.Tail = l.Tail.Prev
-	l.Tail.Next = nil
+	l.tail = l.tail.Prev
+	l.tail.Next = nil
 	return output, true
 }
 
 func (l *DoubleLinkedList) Clear() {
-	l.Head = nil
-	l.Tail = nil
+	l.head = nil
+	l.tail = nil
 }
 
 func (l *DoubleLinkedList) Remove(d int) bool {
@@ -91,15 +96,15 @@ func (l *DoubleLinkedList) Remove(d int) bool {
 		return false
 	}
 	defer l.decrementLength()
-	if l.Head.Data == d {
+	if l.head.Data == d {
 		l.RemoveFirst()
 		return true
 	}
-	if l.Tail.Data == d {
+	if l.tail.Data == d {
 		l.RemoveLast()
 		return true
 	}
-	cursor := l.Head.Next
+	cursor := l.head.Next
 	for cursor != nil {
 		if cursor.Data == d {
 			cursor.Prev.Next = cursor.Next
@@ -117,7 +122,7 @@ func (l *DoubleLinkedList) Contains(d int) bool {
 		return false
 	}
 
-	cursor := l.Head
+	cursor := l.head
 
 	for cursor != nil {
 		if cursor.Data == d {
@@ -129,5 +134,22 @@ func (l *DoubleLinkedList) Contains(d int) bool {
 }
 
 func (l *DoubleLinkedList) IsEmpty() bool {
-	return l.Head == nil
+	return l.head == nil
+}
+
+func (l *DoubleLinkedList) String() string {
+	if l.IsEmpty() {
+		return "Head-> nil <-Tail"
+	}
+
+	var builder strings.Builder
+	builder.WriteString("[nill ")
+	cursor := l.head
+	for cursor != nil {
+		builder.WriteString(fmt.Sprintf("<-%d-> ", cursor.Data))
+		cursor = cursor.Next
+	}
+	builder.WriteString("nil]")
+
+	return builder.String()
 }

@@ -2,15 +2,25 @@ package main
 
 import (
 	"fmt"
-	"learningDSA/src/internal/datastructures/linkedlists"
+	"learningDSA/src/internal/datastructures/queue"
 )
 
 func main() {
-	l := linkedlists.SingleLinkedList{}
+	q := queue.Queue{}
 
-	l.AddFirst(1)
-	l.AddFirst(2)
-	l.AddLast(4)
-	l.Remove(4)
-	fmt.Println(l.String())
+	q.Enqueue(1)
+	q.Enqueue(2)
+	q.Enqueue(3)
+	q.Enqueue(4)
+	q.Enqueue(5)
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+	fmt.Println(q.Dequeue())
+
+	fmt.Println(q.String())
 }
