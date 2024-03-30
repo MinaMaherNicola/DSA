@@ -13,6 +13,15 @@ type Node struct {
 type SingleLinkedList struct {
 	head *Node
 	tail *Node
+	Length int
+}
+
+func (l *SingleLinkedList) incrementLength() {
+	l.Length++
+}
+
+func (l *SingleLinkedList) decrementLength() {
+	l.Length--
 }
 
 func (l *SingleLinkedList) IsEmpty() bool {
@@ -20,6 +29,7 @@ func (l *SingleLinkedList) IsEmpty() bool {
 }
 
 func (l *SingleLinkedList) AddFirst(d int) {
+	defer l.incrementLength()
 	if l.head == nil {
 		l.initiateList(d)
 		return
@@ -31,7 +41,16 @@ func (l *SingleLinkedList) AddFirst(d int) {
 	l.head = newNode
 }
 
+func (l *SingleLinkedList) PeekFirst() (int, bool) {
+	if l.IsEmpty() {
+		return 0, false
+	}
+
+	return l.head.Data, true
+}
+
 func (l *SingleLinkedList) AddLast(d int) {
+	defer l.incrementLength()
 	if l.head == nil {
 		l.initiateList(d)
 		return
@@ -46,6 +65,7 @@ func (l *SingleLinkedList) RemoveLast() (int, bool) {
 	if l.head == nil {
 		return 0, false
 	}
+	defer l.decrementLength()
 	if l.head == l.tail {
 		output := l.head.Data
 		l.Clear()
@@ -65,6 +85,7 @@ func (l *SingleLinkedList) RemoveFirst() (int, bool) {
 	if l.head == nil {
 		return 0, false
 	}
+	defer l.decrementLength()
 	if l.head == l.tail {
 		output := l.head.Data
 		l.Clear()
@@ -93,6 +114,7 @@ func (l *SingleLinkedList) Remove(d int) bool {
 	if l.IsEmpty() || !l.Contains(d) {
 		return false
 	}
+	defer l.decrementLength();
 	if l.head.Data == d {
 		l.RemoveFirst()
 		return true
