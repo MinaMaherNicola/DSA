@@ -23,3 +23,16 @@ func SelectionSort(a []int) {
 		a[i], a[selected] = a[selected], a[i]
 	}
 }
+
+func InsertionSort(a []int) {
+	l := len(a)
+	for i := 1; i < l; i++ {
+			current := a[i]
+			j := i - 1
+			for j >= 0 && a[j] > current {
+					a[j+1] = a[j]
+					j--
+			}
+			a[j+1] = current
+	}
+}
