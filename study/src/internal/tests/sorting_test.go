@@ -54,3 +54,27 @@ func TestInsertionSort(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestMergeSort_BestCase(t *testing.T) {
+	a := []int {0, 1, 2, 3, 4, 5, 6}
+
+	if !sortingAlgorithms.IsSorted(sortingAlgorithms.MergeSort(a)) {
+		t.Fail()
+	}
+}
+
+func TestMergeSort_WorstCase(t *testing.T) {
+	a := []int {9, 8, 7, 6, 5, 4, 3, 2, 1}
+
+	if !sortingAlgorithms.IsSorted(sortingAlgorithms.MergeSort(a)) {
+		t.Fail()
+	}
+}
+
+func TestMergeSort_Average(t *testing.T) {
+	a := []int {5, 1, 2, 10, 3, 4, 20, 50, 0}
+
+	if !sortingAlgorithms.IsSorted(sortingAlgorithms.MergeSort(a)) {
+		t.Fail()
+	}
+}

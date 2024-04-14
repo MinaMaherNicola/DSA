@@ -36,3 +36,47 @@ func InsertionSort(a []int) {
 			a[j+1] = current
 	}
 }
+
+func MergeSort(a []int) []int {
+	l := len(a)
+	if l <= 1 {
+		return a
+	}
+
+	mid := l / 2
+	left := MergeSort(a[0:mid])
+	right := MergeSort(a[mid:l])
+	return merge(left, right)
+}
+
+func merge(left, right []int) []int {
+	leftLength := len(left)
+	rightLength := len(right)
+	newLength := leftLength + rightLength
+	newSlice := make([]int, newLength)
+
+	rightPointer := 0
+	leftPointer := 0
+	newSlicePointer := 0
+
+	for leftPointer < leftLength && rightPointer < rightLength {
+		if left[leftPointer] >= right[rightPointer] {
+			newSlice[newSlicePointer] = right[rightPointer]
+			rightPointer++
+		} else {
+			newSlice[newSlicePointer] = left[leftPointer]
+			leftPointer++
+		}
+		newSlicePointer++
+	}
+
+	if leftPointer != leftLength {
+		copy(newSlice[newSlicePointer:], left[leftPointer:])
+	}
+
+	if rightPointer != rightLength {
+		copy(newSlice[newSlicePointer:], right[rightPointer:])
+	}
+
+	return newSlice
+}

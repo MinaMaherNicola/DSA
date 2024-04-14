@@ -2,25 +2,11 @@ package main
 
 import (
 	"fmt"
-	"learningDSA/src/internal/datastructures/stack"
+	"learningDSA/src/internal/sortingAlgorithms"
 )
 
 func main() {
-	s := stack.Stack{}
+	a := []int {5, 2, 7, 1, 0}
 
-	s.Push(1)
-	s.Push(2)
-	s.Push(3)
-	s.Push(4)
-	s.Push(5)
-	fmt.Println(s.String())
-
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
+	fmt.Println(sortingAlgorithms.MergeSort(a))
 }
