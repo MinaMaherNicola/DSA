@@ -14,3 +14,10 @@ func Factorial(x int) int {
 
 	return x * Factorial(x - 1)
 }
+
+func Fib(x int) int {
+	if x <= 1 {
+		return x
+	}
+	return Fib(x - 1) + Fib(x - 2)
+}

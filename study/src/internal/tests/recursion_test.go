@@ -21,3 +21,11 @@ func TestFactorial(t *testing.T) {
 		t.Error()
 	}
 }
+
+func TestFib(t *testing.T) {
+	fib := recursion.Fib(20)
+
+	if fib != 6765 {
+		t.Error()
+	}
+}
