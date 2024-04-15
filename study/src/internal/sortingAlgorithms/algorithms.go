@@ -80,3 +80,27 @@ func merge(left, right []int) []int {
 
 	return newSlice
 }
+
+func QuickSort(a []int) []int {
+	if len(a) <= 1 {
+			return a
+	}
+	p := len(a) - 1
+	l := 0
+
+	for r := 0; r < p; r++ {
+			if a[r] <= a[p] {
+					if r != l {
+							a[r], a[l] = a[l], a[r] 
+					}
+					l++
+			}
+	}
+
+	a[l], a[p] = a[p], a[l]
+
+	QuickSort(a[:l])
+	QuickSort(a[l+1:])
+
+	return a
+}
